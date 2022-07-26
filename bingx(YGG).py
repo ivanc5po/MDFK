@@ -17,8 +17,8 @@ coin = "ygg"
 os.system("clear")
 
 APIURL = "https://api-swap-rest.bingbon.pro"
-APIKEY = "BD8WFvITsvEbsnENQn7OkPOfZd1LjyzquqLLTGbd1v62Lr96"
-SECRETKEY = "knlrqI0bs2QbfmkeaWaSh1yinV8sIAFQAT9yTJjtwWu4eDJQ5MbQeKG8LMCEanRz"
+APIKEY = "6aI6LP3LBoJ72FwdlXPNac1KgX7nOp6qQbPJ2AeTIZokfxOe"
+SECRETKEY = "75XcRCFD97rK9whATGWbZDKkIPRAZFNZm7ZGsaNWMSxEe8HVvmPh250gUdgJgbgW"
 
 chrome_options = Options()
 chrome_options.add_argument('--headless')
@@ -86,7 +86,7 @@ bingx = float(wd2.find_element(by=By.XPATH, value='/html/body/div/section/div[2]
 balance = float(str(getBalance()).split(',')[5].replace('"balance":', ''))
 print("start !!!",okx , bingx, balance)
 
-bey = 0.8
+bey = 5
 
 amount = balance*bey
 
