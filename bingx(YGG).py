@@ -11,14 +11,14 @@ import hmac
 
 import os
 
-coin = "ygg"
+coin = "unfi"
 
 #170961
 os.system("clear")
 
 APIURL = "https://api-swap-rest.bingbon.pro"
-APIKEY = "6aI6LP3LBoJ72FwdlXPNac1KgX7nOp6qQbPJ2AeTIZokfxOe"
-SECRETKEY = "75XcRCFD97rK9whATGWbZDKkIPRAZFNZm7ZGsaNWMSxEe8HVvmPh250gUdgJgbgW"
+APIKEY = "xxx"
+SECRETKEY = "xxx"
 
 chrome_options = Options()
 chrome_options.add_argument('--headless')
@@ -28,7 +28,7 @@ prefs = {"profile.managed_default_content_settings.images": 2}
 chrome_options.add_experimental_option("prefs", prefs)
 wd = webdriver.Chrome(options=chrome_options)
 wd2 = webdriver.Chrome(options=chrome_options)
-wd.get('https://www.okx.com/trade-swap/'+coin.lower()+'-usdt-swap')
+wd.get('https://www.binance.com/en/trade/'+coin.upper()+'_USDT?theme=dark&type=spot')
 wd2.get('https://swap.bingx.com/en-us/'+coin.upper()+'-USDT')
 price = 0
 
@@ -120,13 +120,13 @@ while True:
             balance = float(str(getBalance()).split(',')[5].replace('"balance":', ''))
             amount = balance*bey
 
-        if mode != 1 and okx < bingx-0.002:
+        if mode != 1 and okx < bingx-0.0019:
             placeOrder(symbol=coin.upper()+"-USDT", side="Ask",volume=amount , tradeType="Market", action="Open", price=0)
             mode = 1
             price = bingx
             print("SELL", bingx)
 
-        if mode != 2 and okx > bingx+0.002:
+        if mode != 2 and okx > bingx+0.0019:
             placeOrder(symbol=coin.upper()+"-USDT", side="Bid",volume=amount , tradeType="Market", action="Open", price=0)
             mode = 2
             price = bingx
